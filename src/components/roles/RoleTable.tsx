@@ -2,7 +2,6 @@
 
 
 import { DataTable } from "../tables/data-table";
-import { userApi } from "../../api/userApi";
 import { useNavigate } from "react-router";
 import { Role } from "../../interfaces/role";
 import { roleColumns } from "../columns/RoleColumn";
@@ -43,10 +42,6 @@ export default function RoleTable() {
     navigate(`/roles/edit/${role.id}`);
   }
 
-  const editRole = (role: Role) => {
-    setSelectedRole(role);
-    setIsOpen(true);
-  }
 
   const handleUpdate = () => {
     alert("success!");

@@ -47,7 +47,7 @@ export const helper = {
         const res = await api.get("staff/all/");
         return res.data.staffs;
     },
-    async fetchStaffById(id:number):Promise<Staff>{
+    async fetchStaffById(id:any):Promise<Staff>{
         const res = await api.get(`staff/search/${id}/`);
         return res.data.staff;
     },
@@ -102,8 +102,8 @@ export const helper = {
         const formattedDate = date.toLocaleDateString("en-CA");
         return formattedDate;
     },
-    getDaysLeft(strDate: string): string {
-        if (!strDate) return "";
+    getDaysLeft(strDate: string): number {
+        if (!strDate) return 0;
 
         const targetDate = new Date(strDate);
         const today = new Date();
@@ -111,7 +111,7 @@ export const helper = {
         const diffMs = targetDate.getTime() - today.getTime();
         const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
-        return String(diffDays);
+        return diffDays;
     },
     setChatMessage(data: any): FormData {
         const form = new FormData();
