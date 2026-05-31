@@ -15,10 +15,20 @@ import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, Table, TableRow, TableCell } from "docx";
+import { ColumnDef } from "@tanstack/react-table";
 
 
+type DataTableProps<T extends { id: number }> = {
+  data: T[];
+  columns: ColumnDef<T, any>[];
+  isLoading?: boolean;
+};
 
-export function DataTable({ data, columns, isLoading=false }) {
+export function DataTable<T extends { id: number }>({
+  data,
+  columns,
+  isLoading = false,
+}: DataTableProps<T>) {
     const [globalFilter, setGlobalFilter] = useState("");
     const [rowSelection, setRowSelection] = useState({});
 
@@ -29,12 +39,12 @@ export function DataTable({ data, columns, isLoading=false }) {
 
         onGlobalFilterChange: setGlobalFilter,
 
-        globalFilterFn: (row, columnId, value) => {
+        globalFilterFn: (row, value) => {
             const search = String(value)
                 .toLowerCase()
                 .normalize("NFKC");
 
-            const flatten = (obj) => {
+            const flatten = (obj : unknown):string => {
                 if (obj == null) return "";
 
                 if (typeof obj === "string" || typeof obj === "number") {

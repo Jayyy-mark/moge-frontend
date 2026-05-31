@@ -8,7 +8,7 @@ import {
 import Badge from "../ui/badge/Badge";
 
 
-const userTableData: SystemUser[] = [
+const userTableData = [
   {
     id: 1,
     userId: "USR-001",

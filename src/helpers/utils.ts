@@ -2,7 +2,6 @@
 //             UTILITIES HELPERS
 //=================================================-->
 
-import { useTranslation } from "react-i18next";
 import { Building } from "../interfaces/building";
 import { Category } from "../interfaces/category";
 import { Department } from "../interfaces/department";
@@ -48,7 +47,7 @@ export const helper = {
         const res = await api.get("staff/all/");
         return res.data.staffs;
     },
-    async fetchStaffById(id:int):Promise<Staff>{
+    async fetchStaffById(id:number):Promise<Staff>{
         const res = await api.get(`staff/search/${id}/`);
         return res.data.staff;
     },
@@ -103,22 +102,18 @@ export const helper = {
         const formattedDate = date.toLocaleDateString("en-CA");
         return formattedDate;
     },
-    getDaysLeft(strDate : string):any{
+    getDaysLeft(strDate: string): string {
+        if (!strDate) return "";
 
-        if(!strDate){
-            return ""
-        }
-
-        const date = strDate;
-        const targetDate = new Date(date);
+        const targetDate = new Date(strDate);
         const today = new Date();
-        
-        const diffMs = targetDate - today;
+
+        const diffMs = targetDate.getTime() - today.getTime();
         const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
         return String(diffDays);
     },
-    setChatMessage(data: ChatPayload): FormData {
+    setChatMessage(data: any): FormData {
         const form = new FormData();
 
         if (data.text) {

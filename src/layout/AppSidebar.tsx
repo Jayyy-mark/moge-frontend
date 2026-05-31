@@ -18,7 +18,10 @@ import {
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 import SidebarWidget from "./SidebarWidget";
-import { ArchiveIcon, Award, BookAIcon, Building, Building2, DoorOpen, FoldersIcon, HouseIcon, Layers, NotebookIcon, RecycleIcon, Shield, Tag, TrendingUp, UserCog, UsersIcon } from "lucide-react";
+import { ArchiveIcon, Award, BookAIcon, Building, 
+  Building2, DoorOpen, FoldersIcon, Layers, NotebookIcon, 
+  RecycleIcon, Shield, UserCog, UsersIcon } 
+from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 

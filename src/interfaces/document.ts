@@ -28,7 +28,7 @@ export interface AddDocument{
     dtype_id:string;
     
     description:string;
-    expired_at:Date| null;
+    expired_at?:Date| null;
 }
 
 export interface DocumentSearch{

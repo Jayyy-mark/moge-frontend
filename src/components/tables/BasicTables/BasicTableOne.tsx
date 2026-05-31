@@ -35,8 +35,7 @@ const tableData: Staff[] = [
       id: 1,
       department_id: "D-001",
       department_name: "Human Resources",
-      // Add other required Department fields here if your interface demands them
-      // e.g. room_id, room, etc.
+      room_id: ""
     },
     role: {
       id: 1,
@@ -46,10 +45,12 @@ const tableData: Staff[] = [
     rank: {
       id: 1,
       rank_name: "Senior",
+      rank_id: ""
     },
     stype: {
       id: 1,
       stype_name: "Full-time",
+      stype_id: ""
     },
   },
   {
@@ -71,6 +72,8 @@ const tableData: Staff[] = [
     },
     rank: { id: 2, rank_id: "RNK-002", rank_name: "Junior" },
     stype: { id: 2, stype_id: "STYP-002", stype_name: "Contract" },
+    rank_id: "",
+    stype_id: ""
   },
 
 ];
@@ -97,10 +100,6 @@ export default function StaffTable() {
 
 
 
-  const openModal = (staff: Staff) => {
-    setSelectedStaff(staff);
-    setIsOpen(true);
-  };
 
   const closeModal = () => {
     setIsOpen(false);
@@ -112,11 +111,6 @@ export default function StaffTable() {
     closeModal();
   };
 
-  const handleDelete = (id: number) => {
-    if (confirm(`Delete Staff ID: ${id}?`)) {
-      console.log("Deleted:", id);
-    }
-  };
 
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
@@ -293,7 +287,7 @@ export default function StaffTable() {
                   <Input
                     type="text"
                     value={selectedStaff?.department?.department_name ?? "Unassigned"}
-                    readOnly
+                    
                     className="bg-gray-50"
                   />
                 </div>
@@ -303,7 +297,7 @@ export default function StaffTable() {
                   <Input
                     type="text"
                     value={selectedStaff?.role?.role_name ?? "Unassigned"}
-                    readOnly
+                    
                     className="bg-gray-50"
                   />
                 </div>
@@ -311,10 +305,10 @@ export default function StaffTable() {
             </div>
 
             <div className="flex items-center justify-end gap-3 px-2 mt-8">
-              <Button size="sm" variant="outline" onClick={closeModal} className="border-gray-300 text-gray-700">
+              <Button size="sm" variant="info" onClick={closeModal} className="border-gray-300 text-gray-700">
                 Cancel
               </Button>
-              <Button size="sm" variant="primary" type="submit" className="bg-blue-600 text-white">
+              <Button size="sm" variant="primary" className="bg-blue-600 text-white">
                 Save Changes
               </Button>
             </div>

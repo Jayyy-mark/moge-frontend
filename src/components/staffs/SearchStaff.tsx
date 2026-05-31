@@ -98,7 +98,6 @@ const SearchStaff = forwardRef(({ onSearch }: any, ref) => {
                 <SearchInput
                     value={form.staff_name}
                     onChange={(e) => setForm({ ...form, staff_name: e.target.value })}
-                    onClear={() => setForm({ ...form, staff_name: "" })}
                 />
             </div>
             <div>
@@ -106,7 +105,6 @@ const SearchStaff = forwardRef(({ onSearch }: any, ref) => {
                 <SearchInput
                     value={form.staff_email}
                     onChange={(e) => setForm({ ...form, staff_email: e.target.value })}
-                    onClear={() => setForm({ ...form, staff_email: "" })}
                 />
             </div>
             <div>

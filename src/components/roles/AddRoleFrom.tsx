@@ -20,7 +20,7 @@ export default function AddRoleForm() {
         }
 
         try {
-            const data = roleApi.create(form)
+            const data = await roleApi.create(form)
             console.log(data);
             alert(data?.message || "Created successfully!");
             navigate('/roles/');

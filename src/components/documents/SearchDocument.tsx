@@ -310,7 +310,7 @@ const Searchdocument = forwardRef(({ onSearch }: any, ref) => {
                     id="create-date"
                     label="Created date:"
                     placeholder="Select a date"
-                    onChange={(dates, currentStringDate) => {
+                    onChange={(_, currentStringDate) => {
                         setForm({ ...form, created_at: currentStringDate })
                     }}
                 />
@@ -337,7 +337,7 @@ const Searchdocument = forwardRef(({ onSearch }: any, ref) => {
                     id="update-date"
                     label="Updated date:"
                     placeholder="Select a date"
-                    onChange={(dates, currentDateString) => {
+                    onChange={(_, currentDateString) => {
                         // Handle your logic
                         setForm((prev) => ({
                             ...prev,
@@ -368,7 +368,7 @@ const Searchdocument = forwardRef(({ onSearch }: any, ref) => {
                     id="expired-date"
                     label="Expired date:"
                     placeholder="Select a date"
-                    onChange={(dates, currentDateString) => {
+                    onChange={(_, currentDateString) => {
                         // Handle your logic
                         setForm((prev) => ({
                             ...prev,

@@ -21,8 +21,7 @@ export default function AddBuildingForm() {
         }
 
         try {
-            const data = buildingApi.create(form)
-            console.log(data);
+            const data = await buildingApi.create(form);
             toast.success(data?.message || "Created successfully!");
             navigate('/buildings/');
         } catch (error : any) {

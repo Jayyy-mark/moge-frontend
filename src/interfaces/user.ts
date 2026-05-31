@@ -13,7 +13,7 @@ export interface User{
     user_id:string;
     username:string;
     email:string;
-    role:"staff" | "admin" | "department head" | "deputy head";
+    role:string;
     is_active?:boolean;
     is_staff?:boolean;
     last_login?:string;

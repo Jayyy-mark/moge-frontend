@@ -1,5 +1,3 @@
-import { Search } from "lucide-react";
-import Button from "../ui/button/Button";
 
 interface ComponentCardProps {
   title: string;

@@ -1,6 +1,4 @@
 import {
-  ArrowDownIcon,
-  ArrowUpIcon,
   BoxIconLine,
   GroupIcon,
 } from "../../icons";
@@ -12,7 +10,7 @@ type Props = {
   departmentCount?:0,
 }
 
-export default function EcommerceMetrics({staffCount=0, documentCount=0, departmentCount=0} : Props) {
+export default function EcommerceMetrics({staffCount=0, documentCount=0} : Props) {
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6">
@@ -31,7 +29,7 @@ export default function EcommerceMetrics({staffCount=0, documentCount=0, departm
               {staffCount}
             </h4>
           </div>
-          <Badge color="success">
+          <Badge color="success" children={undefined}>
             {/* <ArrowUpIcon />
             11.01% */}
           </Badge>
@@ -54,7 +52,7 @@ export default function EcommerceMetrics({staffCount=0, documentCount=0, departm
             </h4>
           </div>
 
-          <Badge color="error">
+          <Badge color="error" children={undefined}>
             {/* <ArrowDownIcon />
             9.05% */}
           </Badge>
@@ -77,7 +75,7 @@ export default function EcommerceMetrics({staffCount=0, documentCount=0, departm
             </h4>
           </div>
 
-          <Badge color="error">
+          <Badge color="error" children={undefined}>
             {/* <ArrowDownIcon />
             9.05% */}
           </Badge>

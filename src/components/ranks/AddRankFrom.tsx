@@ -20,7 +20,7 @@ export default function AddRankForm() {
         }
 
         try {
-            const data = rankApi.create(form)
+            const data = await rankApi.create(form)
             console.log(data);
             alert(data?.message || "Created successfully!");
             navigate('/ranks/');

@@ -177,7 +177,8 @@ const SearchArchiveDocument = forwardRef(({ onSearch }: any, ref) => {
                     id="archive-date"
                     label="Archived date:"
                     placeholder="Select a date"
-                    onChange={(dates, currentStringDate) => {
+                    onChange={(_, currentStringDate) => {
+
                         setForm({ ...form, archived_at: currentStringDate })
                     }}
                 />

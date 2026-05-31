@@ -176,7 +176,7 @@ const SearchRecycleDocument = forwardRef(({ onSearch }: any, ref) => {
                     id="create-date"
                     label="Created date:"
                     placeholder="Select a date"
-                    onChange={(dates, currentStringDate) => {
+                    onChange={(_, currentStringDate) => {
                         setForm({ ...form, recycle_at: currentStringDate })
                     }}
                 />

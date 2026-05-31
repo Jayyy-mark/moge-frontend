@@ -253,7 +253,7 @@ export default function AddDocumentForm() {
                         </div>
                     }
                     placeholder="Select a date"
-                    onChange={(dates, strDate) => {
+                    onChange={(dates, _) => {
                         setForm((prev) => ({
                             ...prev,
                             expired_at: dates[0],

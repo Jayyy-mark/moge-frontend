@@ -5,6 +5,7 @@ import Input from "../../form/input/InputField.tsx";
 import { useParams } from "react-router";
 import { userApi } from "../../../api/userApi.ts";
 import Select from "../../form/Select.tsx";
+import { User } from "../../../interfaces/user.ts";
 
 const emptyUser: User = {
   id: 0,
