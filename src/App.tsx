@@ -70,9 +70,7 @@ export default function App() {
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route index path="/" element={
-              <ProtectedRoute roles={["admin"]}>
                 <Home />
-              </ProtectedRoute>
               } />
 
             {/* Others Page */}
