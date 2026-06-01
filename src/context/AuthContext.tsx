@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import api from "../helpers/api";
 
 type User = {
   id: number;
@@ -24,12 +23,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true); // ⬅️ new
 
   const logout = async () => {
-    // await fetch("http://localhost:8000/api/auth/logout/", {
-    //   method: "POST",
-    //   credentials: "include",
-    // });
-
-    await fetch("https://moge-backend.up.railway.app/api/auth/logout/", {
+    await fetch("http://localhost:8000/api/auth/logout/", {
       method: "POST",
       credentials: "include",
     });
@@ -38,11 +32,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const fetchCurrentUser = async () => {
     try {
-      // const res = await fetch("http://localhost:8000/api/auth/user/", {
-      //   credentials: "include",
-      // });
-  
-      const res = await fetch("https://moge-backend.up.railway.app/api/auth/user/", {
+      const res = await fetch("http://localhost:8000/api/auth/user/", {
         credentials: "include",
       });
       if (!res.ok) throw new Error();
