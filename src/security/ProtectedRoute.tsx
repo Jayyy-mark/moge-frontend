@@ -2,14 +2,23 @@ import { Navigate } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { JSX } from "react";
 
-export default function ProtectedRoute({ children, roles }: { children: JSX.Element; roles?: string[] }) {
-  const { user } = useAuth();
+export default function ProtectedRoute({
+  children,
+  roles,
+}: {
+  children: JSX.Element;
+  roles?: string[];
+}) {
+  const { user, loading } = useAuth();
 
-  // if (user === null) return <div>Loading...</div>; // wait for fetchCurrentUser
+  // 🔥 IMPORTANT: wait until auth check finishes
+  if (loading) return null; // or spinner
 
-  if (!user) return <Navigate to="/signin" />;
-  if (roles && !roles.includes(user.role)) return <Navigate to="/404" />;
+  if (!user) return <Navigate to="/signin" replace />;
+
+  if (roles && !roles.includes(user.role)) {
+    return <Navigate to="/404" replace />;
+  }
 
   return children;
 }
-
