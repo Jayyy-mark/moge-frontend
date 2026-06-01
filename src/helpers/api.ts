@@ -25,7 +25,8 @@ api.interceptors.response.use(
 
             try {
                 await axios.post(
-                    "http://localhost:8000/api/auth/token/refresh/",
+                    //"http://localhost:8000/api/auth/token/refresh/",
+                    "https://moge-backend.up.railway.app/api/auth/token/refresh/",
                     {},
                     { withCredentials: true }
                 );
