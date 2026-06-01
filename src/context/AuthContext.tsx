@@ -24,14 +24,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true); // ⬅️ new
 
   const logout = async () => {
-    await api.post("auth/logout/");
+    // await fetch("http://localhost:8000/api/auth/logout/", {
+    //   method: "POST",
+    //   credentials: "include",
+    // });
+
+    await fetch("https://moge-backend.up.railway.app/api/auth/logout/", {
+      method: "POST",
+      credentials: "include",
+    });
     setUser(null);
   };
 
   const fetchCurrentUser = async () => {
     try {
-      const res = await api.get("auth/user/");
-      setUser(res.data);
+      // const res = await fetch("http://localhost:8000/api/auth/user/", {
+      //   credentials: "include",
+      // });
+  
+      const res = await fetch("https://moge-backend.up.railway.app/api/auth/user/", {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      setUser(data);
     } catch {
       setUser(null);
     } finally {
