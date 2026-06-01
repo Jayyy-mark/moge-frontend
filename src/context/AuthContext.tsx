@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import api from "../helpers/api";
 
 type User = {
   id: number;
@@ -23,21 +24,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true); // ⬅️ new
 
   const logout = async () => {
-    await fetch("http://localhost:8000/api/auth/logout/", {
-      method: "POST",
-      credentials: "include",
-    });
+    await api.post("auth/logout/");
     setUser(null);
   };
 
   const fetchCurrentUser = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/auth/user/", {
-        credentials: "include",
-      });
-      if (!res.ok) throw new Error();
-      const data = await res.json();
-      setUser(data);
+      const res = await api.get("auth/user/");
+      setUser(res.data);
     } catch {
       setUser(null);
     } finally {
